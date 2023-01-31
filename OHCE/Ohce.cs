@@ -25,12 +25,12 @@ public class Ohce
         if (reversed.Equals(input))
             stringBuilder.Append(reversed + " est bien un palindrome !"+ "\n" + _langue.BienDit + "\n");
 
-        stringBuilder.Append(_langue.AuRevoir);
+        stringBuilder.Append(_langue.DireAuRevoir(this._périodeJournée));
 
         return stringBuilder.ToString();
     }
     public string Saluer()
     {
-        return this._langue.SayHello(this._périodeJournée);
+        return this._langue.DireBonjour(this._périodeJournée);
     }
 }

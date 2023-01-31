@@ -23,7 +23,7 @@ namespace OHCE.Test.xUnit
             var langue = new LangueFrançaise();
 
             // QUAND je dis bonjour
-            var salutation = langue.SayHello(période);
+            var salutation = langue.DireBonjour(période);
 
             // ALORS on me répond <salutationAttendue>
             Assert.Equal(salutationAttendue, salutation);
@@ -42,10 +42,30 @@ namespace OHCE.Test.xUnit
             var langue = new LangueAnglaise();
 
             // QUAND je dis bonjour
-            var salutation = langue.SayHello(période);
+            var salutation = langue.DireBonjour(période);
 
             // ALORS on me répond <salutationAttendue>
             Assert.Equal(salutationAttendue, salutation);
         }
+
+        [Theory]
+        [InlineData(PériodeJournée.Soir, Expressions.Français.Bonsoir)]
+        [InlineData(PériodeJournée.Matin, Expressions.Français.Bonjour)]
+        [InlineData(PériodeJournée.AprèsMidi, Expressions.Français.BonAprèsMidi)]
+        [InlineData(PériodeJournée.Nuit, Expressions.Français.BonneNuit)]
+        [InlineData(PériodeJournée.Defaut, Expressions.Français.AuRevoir)]
+        public void DireAurevoirTest(PériodeJournée période, string salutationAttendue)
+        {
+            // ETANT DONNE la langue française
+            // ET une période de la journée <période>
+            var langue = new LangueFrançaise();
+
+            // QUAND je dis bonjour
+            var salutation = langue.DireAuRevoir(période);
+
+            // ALORS on me répond <salutationAttendue>
+            Assert.Equal(salutationAttendue, salutation);
+        }
+
     }
 }

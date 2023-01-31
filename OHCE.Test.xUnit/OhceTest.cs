@@ -79,14 +79,14 @@ public class OhceTest
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS <bonjour> de cette langue à cette période est envoyé
-        Assert.StartsWith(langue.SayHello(période), sortie);
+        Assert.StartsWith(langue.DireBonjour(période), sortie);
     }
 
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "QUAND l'app se ferme " +
                           "ALORS <auRevoir> dans cette langue est envoyé")]
     [MemberData(nameof(LanguesSeules))]
-    public void FermetureTest(ILangue langue)
+    public void FermetureTest(ILangue langue, PériodeJournée période)
     {
         // ETANT DONNE un utilisateur parlant une langue
         var ohce = new OhceBuilder()
@@ -97,6 +97,6 @@ public class OhceTest
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS <auRevoir> dans cette langue est envoyé
-        Assert.EndsWith(langue.AuRevoir, sortie);
+        Assert.EndsWith(langue.DireAuRevoir(période), sortie);
     }
 }

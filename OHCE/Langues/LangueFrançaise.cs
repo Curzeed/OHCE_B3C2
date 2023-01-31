@@ -8,26 +8,29 @@ namespace OHCE.Langues
         public string BienDit => Expressions.Français.BienDit;
 
         /// <inheritdoc />
-        public string SayHello(PériodeJournée période)
+        public string DireBonjour(PériodeJournée période)
         {
-            switch (période)
+            return période switch
             {
-                case PériodeJournée.Defaut:
-                    return Expressions.Français.Bonjour;
-                case PériodeJournée.Matin:
-                    return Expressions.Français.Bonjour;
-                case PériodeJournée.AprèsMidi:
-                    return Expressions.Français.BonAprèsMidi;
-                case PériodeJournée.Soir:
-                    return Expressions.Français.Bonsoir;
-                case PériodeJournée.Nuit:
-                    return Expressions.Français.BonneNuit;
-                default: return "Bonjour dans votre période inconnue !";
-                    
-            }
+                PériodeJournée.Defaut => Expressions.Français.Bonjour,
+                PériodeJournée.Matin => Expressions.Français.Bonjour,
+                PériodeJournée.AprèsMidi => Expressions.Français.BonAprèsMidi,
+                PériodeJournée.Soir => Expressions.Français.Bonsoir,
+                PériodeJournée.Nuit => Expressions.Français.BonneNuit,
+                _ => "Bonjour dans votre période inconnue !",
+            };
         }
-
-        /// <inheritdoc />
-        public string AuRevoir => Expressions.Français.AuRevoir;
+        public string DireAuRevoir(PériodeJournée période)
+        {
+            return période switch
+            {
+                PériodeJournée.Defaut => Expressions.Français.AuRevoir,
+                PériodeJournée.Matin => Expressions.Français.Bonjour,
+                PériodeJournée.AprèsMidi => Expressions.Français.BonAprèsMidi,
+                PériodeJournée.Soir => Expressions.Français.Bonsoir,
+                PériodeJournée.Nuit => Expressions.Français.BonneNuit,
+                _ => Expressions.Français.AuRevoir,
+            };
+        }
     }
 }

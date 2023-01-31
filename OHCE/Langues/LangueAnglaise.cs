@@ -6,20 +6,30 @@
         public string BienDit => Expressions.English.WellSaid;
         
         /// <inheritdoc />
-        public string SayHello(PériodeJournée période)
+        public string DireBonjour(PériodeJournée période)
         {
-            switch (période)
+            return période switch
             {
-                case PériodeJournée.Defaut: return Expressions.English.Hello;
-                case PériodeJournée.Soir: return Expressions.English.GoodEvening;
-                case PériodeJournée.AprèsMidi: return Expressions.English.GoodAfternoon;
-                case PériodeJournée.Matin: return Expressions.English.GoodMorning;
-                case PériodeJournée.Nuit: return Expressions.English.GoodNight;
-                default: return "Hello from undefined period";
-            }
+                PériodeJournée.Defaut => Expressions.English.Hello,
+                PériodeJournée.Soir => Expressions.English.GoodEvening,
+                PériodeJournée.AprèsMidi => Expressions.English.GoodAfternoon,
+                PériodeJournée.Matin => Expressions.English.GoodMorning,
+                PériodeJournée.Nuit => Expressions.English.GoodNight,
+                _ => "Hello from undefined period",
+            };
         }
 
-        /// <inheritdoc />
-        public string AuRevoir => Expressions.English.GoodBye;
+        public string DireAuRevoir(PériodeJournée période)
+        {
+            return période switch
+            {
+                PériodeJournée.Defaut => Expressions.English.GoodBye,
+                PériodeJournée.Matin => Expressions.English.GoodMorning,
+                PériodeJournée.AprèsMidi => Expressions.English.GoodAfternoon,
+                PériodeJournée.Soir => Expressions.English.GoodEvening,
+                PériodeJournée.Nuit => Expressions.English.GoodEvening,
+                _ => Expressions.English.GoodBye,
+            };
+        }
     }
 }
