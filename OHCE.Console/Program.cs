@@ -8,3 +8,4 @@ var ohce = new Ohce(new SystemLangueProxy().getLangue(CultureInfo.InstalledUICul
 Console.WriteLine(ohce.Saluer());
 Console.WriteLine(" > ");
 Console.WriteLine(ohce.Palindrome(Console.ReadLine()));
+Console.WriteLine(ohce.DireAuRevoir);

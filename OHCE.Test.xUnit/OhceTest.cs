@@ -14,7 +14,7 @@ public class OhceTest
         var ohce = OhceBuilder.Default;
 
         // QUAND on entre une chaîne de caractère
-        var sortie = ohce.Palindrome("toto");
+        var sortie = ohce.Miroir("toto");
 
         // ALORS elle est renvoyée en miroir
         Assert.Contains("otot", sortie);
@@ -39,7 +39,7 @@ public class OhceTest
         // ALORS il est renvoyé
         // ET <bienDit> en <langue> est envoyé
         Assert.Contains(
-            palindrome +"\n"+ langue.BienDit, 
+            langue.BienDit, 
             sortie);
     }
 
@@ -76,12 +76,13 @@ public class OhceTest
             .Build();
 
         // QUAND l'app démarre
-        var sortie = ohce.Palindrome(string.Empty);
+        var sortie = ohce.Saluer();
 
         // ALORS <bonjour> de cette langue à cette période est envoyé
         Assert.StartsWith(langue.DireBonjour(période), sortie);
     }
 
+    
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +
                           "QUAND l'app se ferme " +
                           "ALORS <auRevoir> dans cette langue est envoyé")]
@@ -93,10 +94,10 @@ public class OhceTest
             .AyantPourLangue(langue)
             .Build();
 
-        // QUAND l'app démarre
-        var sortie = ohce.Palindrome(string.Empty);
+        // QUAND l'app se ferme
+        var sortie = ohce.DireAuRevoir();
 
         // ALORS <auRevoir> dans cette langue est envoyé
-        Assert.EndsWith(langue.DireAuRevoir(période), sortie);
+        Assert.StartsWith(langue.DireAuRevoir(période), sortie);
     }
 }

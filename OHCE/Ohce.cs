@@ -13,24 +13,29 @@ public class Ohce
         _langue = langue;
         _périodeJournée = périodeJournée;
     }
-
+    public string Miroir (string input)
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        string inversee = new string( input.Reverse().ToArray());
+        stringBuilder.Append(inversee);
+        return stringBuilder.ToString();
+    }
     public string Palindrome(string input)
     {
         var stringBuilder = new StringBuilder();
 
-        var reversed = new string(
-            input.Reverse().ToArray()
-        );
-
-        if (reversed.Equals(input))
-            stringBuilder.Append(reversed + " est bien un palindrome !"+ "\n" + _langue.BienDit + "\n");
-
-        stringBuilder.Append(_langue.DireAuRevoir(this._périodeJournée));
+        
+        if (this.Miroir(input) == input )
+            stringBuilder.Append(_langue.BienDit);
 
         return stringBuilder.ToString();
     }
     public string Saluer()
     {
         return this._langue.DireBonjour(this._périodeJournée);
+    }
+    public string DireAuRevoir()
+    {
+        return this._langue.DireAuRevoir(this._périodeJournée);
     }
 }
