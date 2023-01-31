@@ -6,7 +6,7 @@
         public string BienDit => Expressions.English.WellSaid;
         
         /// <inheritdoc />
-        public string DireBonjour(PériodeJournée période)
+        public string SayHello(PériodeJournée période)
         {
             switch (période)
             {

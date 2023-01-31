@@ -31,6 +31,6 @@ public class Ohce
     }
     public string Saluer()
     {
-        return this._langue.DireBonjour(this._périodeJournée);
+        return this._langue.SayHello(this._périodeJournée);
     }
 }

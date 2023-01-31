@@ -79,7 +79,7 @@ public class OhceTest
         var sortie = ohce.Palindrome(string.Empty);
 
         // ALORS <bonjour> de cette langue à cette période est envoyé
-        Assert.StartsWith(langue.DireBonjour(période), sortie);
+        Assert.StartsWith(langue.SayHello(période), sortie);
     }
 
     [Theory(DisplayName = "ETANT DONNE un utilisateur parlant une langue" +

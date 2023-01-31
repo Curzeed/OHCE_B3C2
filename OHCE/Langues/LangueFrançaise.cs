@@ -8,7 +8,7 @@ namespace OHCE.Langues
         public string BienDit => Expressions.Français.BienDit;
 
         /// <inheritdoc />
-        public string DireBonjour(PériodeJournée période)
+        public string SayHello(PériodeJournée période)
         {
             switch (période)
             {
