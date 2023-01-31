@@ -1,4 +1,6 @@
-﻿namespace OHCE.Langues
+﻿
+
+namespace OHCE.Langues
 {
     public class LangueFrançaise : ILangue
     {
@@ -8,9 +10,21 @@
         /// <inheritdoc />
         public string DireBonjour(PériodeJournée période)
         {
-            return période == PériodeJournée.Soir 
-                ? Expressions.Français.Bonsoir 
-                : Expressions.Français.Bonjour;
+            switch (période)
+            {
+                case PériodeJournée.Defaut:
+                    return Expressions.Français.Bonjour;
+                case PériodeJournée.Matin:
+                    return Expressions.Français.Bonjour;
+                case PériodeJournée.AprèsMidi:
+                    return Expressions.Français.BonAprèsMidi;
+                case PériodeJournée.Soir:
+                    return Expressions.Français.Bonsoir;
+                case PériodeJournée.Nuit:
+                    return Expressions.Français.BonneNuit;
+                default: return "Bonjour dans votre période inconnue !";
+                    
+            }
         }
 
         /// <inheritdoc />
