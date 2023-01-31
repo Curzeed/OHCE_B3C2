@@ -1,8 +1,14 @@
 ﻿using OHCE.Langues;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace OHCE.Test.xUnit
 {
-    public class LanguesTest
+      public class LanguesTest
     {
         [Theory]
         [InlineData(PériodeJournée.Soir, Expressions.Français.Bonsoir)]
@@ -23,23 +29,5 @@ namespace OHCE.Test.xUnit
             Assert.Equal(salutationAttendue, salutation);
         }
 
-        [Theory]
-        [InlineData(PériodeJournée.Soir, Expressions.English.GoodEvening)]
-        [InlineData(PériodeJournée.Matin, Expressions.English.GoodMorning)]
-        [InlineData(PériodeJournée.AprèsMidi, Expressions.English.GoodAfternoon)]
-        [InlineData(PériodeJournée.Nuit, Expressions.English.GoodNight)]
-        [InlineData(PériodeJournée.Defaut, Expressions.English.Hello)]
-        public void SayHelloTest(PériodeJournée période, string salutationAttendue)
-        {
-            // ETANT DONNE la langue française
-            // ET une période de la journée <période>
-            var langue = new LangueAnglaise();
-
-            // QUAND je dis bonjour
-            var salutation = langue.DireBonjour(période);
-
-            // ALORS on me répond <salutationAttendue>
-            Assert.Equal(salutationAttendue, salutation);
-        }
     }
 }

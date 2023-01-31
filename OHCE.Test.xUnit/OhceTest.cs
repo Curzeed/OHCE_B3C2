@@ -39,7 +39,7 @@ public class OhceTest
         // ALORS il est renvoyé
         // ET <bienDit> en <langue> est envoyé
         Assert.Contains(
-            palindrome + langue.BienDit, 
+            palindrome +"\n"+ langue.BienDit, 
             sortie);
     }
 
